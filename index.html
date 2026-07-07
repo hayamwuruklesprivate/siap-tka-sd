@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW Les Private - Media Latihan TKA 2026</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-galaxy">
+
+    <!-- BACKGROUND EFFECTS CONTAINER -->
+    <div id="bg-effects-container" class="bg-effects"></div>
+
+    <!-- AUDIO ELEMENT (Musik langsung ditaruh di luar/sejajar index.html) -->
+    <audio id="bg-music" loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 0. LOADING SCREEN -->
+    <div id="loading-screen" class="screen active">
+        <div class="loading-content">
+            <h1 class="brand-title-load">HW Les Private</h1>
+            <h2 class="sub-title-load">Media Latihan TKA 2026</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="loading-glow"></div>
+        </div>
+    </div>
+
+    <!-- 1. WELCOME SCREEN -->
+    <div id="welcome-screen" class="screen">
+        <div class="glass-card welcome-card">
+            <h1 class="main-title">Selamat Datang di<br><span class="glow-text">Media Latihan TKA</span></h1>
+            <p class="subtitle">Dipersembahkan oleh <span class="brand-highlight">HW Les Private</span></p>
+            
+            <div class="form-group">
+                <label for="student-name">Nama Siswa</label>
+                <input type="text" id="student-name" placeholder="Tuliskan nama kamu..." autocomplete="off">
+            </div>
+
+            <button id="btn-start" class="btn btn-neon">
+                <span>Mulai Belajar</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+
+        <!-- Floating Settings Action Button -->
+        <button id="btn-open-settings" class="btn-settings-toggle">
+            <span>⚙ Pengaturan</span>
+        </button>
+
+        <footer class="screen-footer">
+            © 2026 HW Les Private
+        </footer>
+    </div>
+
+    <!-- 2. THEME SELECTION & NARRATION SCREEN -->
+    <div id="theme-screen" class="screen">
+        <div class="theme-layout">
+            
+            <!-- Left Side: Avatar & Narration -->
+            <div class="avatar-narration-side">
+                <div class="avatar-container">
+                    <div id="dynamic-avatar" class="dynamic-avatar"></div>
+                </div>
+                <div class="glass-card narration-card">
+                    <p id="narration-text">Memuat narasi karakter...</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Theme Switcher & Summary Card -->
+            <div class="controls-side">
+                <div class="glass-card selection-card">
+                    <h3>Pilih Tema Pembelajaran</h3>
+                    <div class="theme-options">
+                        <button class="btn-theme-select active" data-theme="galaxy">
+                            <span class="theme-icon">🌌</span> Galaksi
+                        </button>
+                        <button class="btn-theme-select" data-theme="autumn">
+                            <span class="theme-icon">🍁</span> Langit Gugur
+                        </button>
+                        <button class="btn-theme-select" data-theme="ocean">
+                            <span class="theme-icon">🌊</span> Samudra
+                        </button>
+                    </div>
+                    <div class="theme-summary-box">
+                        <p id="theme-summary">"Jelajahi luasnya galaksi dan temukan bahwa setiap rumus adalah bintang yang akan menerangi masa depanmu."</p>
+                    </div>
+                </div>
+
+                <div class="glass-card navigation-card">
+                    <button id="btn-to-menu" class="btn btn-neon btn-full">
+                        <span>Lanjut ke Menu Utama</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bottom-nav">
+            <button class="btn-back" data-target="welcome-screen">← Kembali</button>
+        </div>
+        <footer class="screen-footer">
+            Dibuat dengan ❤️ oleh HW Les Private © 2026
+        </footer>
+    </div>
+
+    <!-- 3. MAIN MENU BELAJAR SCREEN -->
+    <div id="menu-screen" class="screen">
+        <div class="glass-card menu-card">
+            <h2 class="section-title">Menu Utama Belajar</h2>
+            <p class="section-desc">Pilih rumpun mata pelajaran yang ingin kamu latih hari ini.</p>
+            
+            <div class="subject-grid">
+                <!-- Matematika Card -->
+                <div class="subject-item active-subject" id="card-matematika">
+                    <div class="subject-icon">📐</div>
+                    <h3>Matematika</h3>
+                    <p>Uji kemampuan analisis matematis, aljabar, geometri, dan matematika dasar.</p>
+                    <span class="badge badge-ready">Siap Diakses</span>
+                </div>
+
+                <!-- Bahasa Indonesia Card -->
+                <div class="subject-item coming-soon-subject" id="card-bahasa">
+                    <div class="subject-icon">✍️</div>
+                    <h3>Bahasa Indonesia</h3>
+                    <p>Latihan pemahaman bacaan, sintaksis, semantik, dan literasi teks formal.</p>
+                    <span class="badge badge-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <button class="btn-back" data-target="theme-screen">← Kembali</button>
+        </div>
+        <footer class="screen-footer">
+            Dibuat dengan ❤️ oleh HW Les Private © 2026
+        </footer>
+    </div>
+
+    <!-- 4. SUB-MENU MATEMATIKA SCREEN -->
+    <div id="math-submenu-screen" class="screen">
+        <div class="glass-card menu-card">
+            <h2 class="section-title">Latihan Matematika TKA</h2>
+            <p class="section-desc">Silakan pilih jenis modul latihan matematika yang kamu butuhkan.</p>
+            
+            <div class="subject-grid">
+                <div class="subject-item coming-soon-subject sub-item">
+                    <div class="subject-icon">📚</div>
+                    <h3>Latihan Per Materi</h3>
+                    <p>Fokus belajar bab demi bab seperti Persamaan Kuadrat, Trigonometri, atau Kalkulus.</p>
+                    <span class="badge badge-soon">Coming Soon</span>
+                </div>
+
+                <div class="subject-item coming-soon-subject sub-item">
+                    <div class="subject-icon">⏱️</div>
+                    <h3>Latihan Simulasi TKA</h3>
+                    <p>Simulasi ujian penuh berwaktu untuk melatih kesiapan mental dan manajemen durasimu.</p>
+                    <span class="badge badge-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <button class="btn-back" data-target="menu-screen">← Kembali</button>
+        </div>
+        <footer class="screen-footer">
+            Dibuat dengan ❤️ oleh HW Les Private © 2026
+        </footer>
+    </div>
+
+
+    <!-- ================= MODAL DIALOGS ================= -->
+    
+    <!-- SETTINGS MODAL -->
+    <div id="modal-settings" class="modal-overlay">
+        <div class="glass-card modal-content">
+            <div class="modal-header">
+                <h3>⚙️ Pengaturan Media</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-row">
+                    <label>Musik Latar</label>
+                    <button id="setting-music-toggle" class="btn-toggle-switch active">ON</button>
+                </div>
+                <div class="setting-row">
+                    <label>Volume Musik</label>
+                    <input type="range" id="setting-volume" min="0" max="1" step="0.1" value="0.5" class="slider">
+                </div>
+                <div class="setting-row">
+                    <label>Efek Animasi</label>
+                    <button id="setting-anim-toggle" class="btn-toggle-switch active">ON</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL (WARNING & COMING SOON) -->
+    <div id="modal-popup" class="modal-overlay">
+        <div class="glass-card modal-content custom-alert">
+            <div class="modal-body text-center">
+                <div id="popup-icon" class="popup-alert-icon">⚠️</div>
+                <p id="popup-message" class="popup-alert-message">Silakan isi nama terlebih dahulu sebelum memulai belajar.</p>
+                <button id="btn-popup-close" class="btn btn-neon btn-small">Oke, Dimengerti</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
