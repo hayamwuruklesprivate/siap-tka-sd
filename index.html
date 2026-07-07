@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW Les Private - Media Latihan TKA 2026</title>
+    <title>HW Les Private - Media Latihan TKA SD 2026</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <!-- BACKGROUND EFFECTS CONTAINER -->
     <div id="bg-effects-container" class="bg-effects"></div>
 
-    <!-- AUDIO ELEMENT (Musik langsung ditaruh di luar/sejajar index.html) -->
+    <!-- AUDIO ELEMENT -->
     <audio id="bg-music" loop>
         <source src="background-music.mp3" type="audio/mpeg">
     </audio>
@@ -24,10 +24,12 @@
     <div id="loading-screen" class="screen active">
         <div class="loading-content">
             <h1 class="brand-title-load">HW Les Private</h1>
-            <h2 class="sub-title-load">Media Latihan TKA 2026</h2>
+            <h2 class="sub-title-load">Media Latihan TKA SD 2026</h2>
             <div class="progress-bar-container">
                 <div class="progress-bar-fill"></div>
             </div>
+            <!-- Teks berganti-ganti di bawah indikator loading -->
+            <p id="loading-dynamic-text" class="loading-status-text">Menuju ke galaksi pelajar</p>
             <div class="loading-glow"></div>
         </div>
     </div>
@@ -35,12 +37,12 @@
     <!-- 1. WELCOME SCREEN -->
     <div id="welcome-screen" class="screen">
         <div class="glass-card welcome-card">
-            <h1 class="main-title">Selamat Datang di<br><span class="glow-text">Media Latihan TKA</span></h1>
+            <h1 class="main-title">Selamat Datang di<br><span class="glow-text">Media Latihan TKA SD</span></h1>
             <p class="subtitle">Dipersembahkan oleh <span class="brand-highlight">HW Les Private</span></p>
             
             <div class="form-group">
                 <label for="student-name">Nama Siswa</label>
-                <input type="text" id="student-name" placeholder="Tuliskan nama kamu..." autocomplete="off">
+                <input type="text" id="student-name" placeholder="Tuliskan nama lengkapmu di sini..." autocomplete="off">
             </div>
 
             <button id="btn-start" class="btn btn-neon">
@@ -54,8 +56,10 @@
             <span>⚙ Pengaturan</span>
         </button>
 
+        <!-- Footer diperbarui sesuai request -->
         <footer class="screen-footer">
-            © 2026 HW Les Private
+            Website Latihan TKA | Dikembangkan oleh Hayam Wuruk Les Private (HW Les Private)<br>
+            © 2026 - Memberikan lebih, lebih, dan lebih!
         </footer>
     </div>
 
@@ -79,13 +83,13 @@
                     <h3>Pilih Tema Pembelajaran</h3>
                     <div class="theme-options">
                         <button class="btn-theme-select active" data-theme="galaxy">
-                            <span class="theme-icon">🌌</span> Galaksi
+                            <span class="theme-icon">🌌</span> Galaksi Ilmu
                         </button>
                         <button class="btn-theme-select" data-theme="autumn">
-                            <span class="theme-icon">🍁</span> Langit Gugur
+                            <span class="theme-icon">🍁</span> Langit Gugur Ceria
                         </button>
                         <button class="btn-theme-select" data-theme="ocean">
-                            <span class="theme-icon">🌊</span> Samudra
+                            <span class="theme-icon">🌊</span> Samudra Prestasi
                         </button>
                     </div>
                     <div class="theme-summary-box">
@@ -106,30 +110,31 @@
             <button class="btn-back" data-target="welcome-screen">← Kembali</button>
         </div>
         <footer class="screen-footer">
-            Dibuat dengan ❤️ oleh HW Les Private © 2026
+            Website Latihan TKA | Dikembangkan oleh Hayam Wuruk Les Private (HW Les Private)<br>
+            © 2026 - Memberikan lebih, lebih, dan lebih!
         </footer>
     </div>
 
     <!-- 3. MAIN MENU BELAJAR SCREEN -->
     <div id="menu-screen" class="screen">
         <div class="glass-card menu-card">
-            <h2 class="section-title">Menu Utama Belajar</h2>
-            <p class="section-desc">Pilih rumpun mata pelajaran yang ingin kamu latih hari ini.</p>
+            <h2 class="section-title">Menu Utama Belajar TKA SD</h2>
+            <p class="section-desc">Pilih rumpun mata pelajaran Sekolah Dasar yang ingin kamu latih hari ini.</p>
             
             <div class="subject-grid">
-                <!-- Matematika Card -->
+                <!-- Matematika Card SD -->
                 <div class="subject-item active-subject" id="card-matematika">
                     <div class="subject-icon">📐</div>
-                    <h3>Matematika</h3>
-                    <p>Uji kemampuan analisis matematis, aljabar, geometri, dan matematika dasar.</p>
+                    <h3>Matematika SD</h3>
+                    <p>Uji kemampuan berhitung dasar, pecahan, bangun datar, ruang, dan logika matematika SD.</p>
                     <span class="badge badge-ready">Siap Diakses</span>
                 </div>
 
-                <!-- Bahasa Indonesia Card -->
+                <!-- Bahasa Indonesia Card SD -->
                 <div class="subject-item coming-soon-subject" id="card-bahasa">
                     <div class="subject-icon">✍️</div>
-                    <h3>Bahasa Indonesia</h3>
-                    <p>Latihan pemahaman bacaan, sintaksis, semantik, dan literasi teks formal.</p>
+                    <h3>Bahasa Indonesia SD</h3>
+                    <p>Latihan pemahaman isi bacaan cerita, ejaan, struktur kalimat, dan makna kata.</p>
                     <span class="badge badge-soon">Coming Soon</span>
                 </div>
             </div>
@@ -139,28 +144,29 @@
             <button class="btn-back" data-target="theme-screen">← Kembali</button>
         </div>
         <footer class="screen-footer">
-            Dibuat dengan ❤️ oleh HW Les Private © 2026
+            Website Latihan TKA | Dikembangkan oleh Hayam Wuruk Les Private (HW Les Private)<br>
+            © 2026 - Memberikan lebih, lebih, dan lebih!
         </footer>
     </div>
 
     <!-- 4. SUB-MENU MATEMATIKA SCREEN -->
     <div id="math-submenu-screen" class="screen">
         <div class="glass-card menu-card">
-            <h2 class="section-title">Latihan Matematika TKA</h2>
-            <p class="section-desc">Silakan pilih jenis modul latihan matematika yang kamu butuhkan.</p>
+            <h2 class="section-title">Latihan Matematika TKA SD</h2>
+            <p class="section-desc">Silakan pilih jenis modul latihan matematika SD yang kamu butuhkan.</p>
             
             <div class="subject-grid">
                 <div class="subject-item coming-soon-subject sub-item">
                     <div class="subject-icon">📚</div>
-                    <h3>Latihan Per Materi</h3>
-                    <p>Fokus belajar bab demi bab seperti Persamaan Kuadrat, Trigonometri, atau Kalkulus.</p>
+                    <h3>Latihan Per Bab SD</h3>
+                    <p>Fokus belajar materi SD seperti Pecahan, KPK & FPB, atau Volume Bangun Ruang.</p>
                     <span class="badge badge-soon">Coming Soon</span>
                 </div>
 
                 <div class="subject-item coming-soon-subject sub-item">
                     <div class="subject-icon">⏱️</div>
-                    <h3>Latihan Simulasi TKA</h3>
-                    <p>Simulasi ujian penuh berwaktu untuk melatih kesiapan mental dan manajemen durasimu.</p>
+                    <h3>Simulasi Ujian TKA SD</h3>
+                    <p>Simulasi ujian penuh berwaktu untuk melatih kesiapan serta kecepatan berpikirmu.</p>
                     <span class="badge badge-soon">Coming Soon</span>
                 </div>
             </div>
@@ -170,7 +176,8 @@
             <button class="btn-back" data-target="menu-screen">← Kembali</button>
         </div>
         <footer class="screen-footer">
-            Dibuat dengan ❤️ oleh HW Les Private © 2026
+            Website Latihan TKA | Dikembangkan oleh Hayam Wuruk Les Private (HW Les Private)<br>
+            © 2026 - Memberikan lebih, lebih, dan lebih!
         </footer>
     </div>
 
