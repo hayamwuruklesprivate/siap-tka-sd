@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VANILLA JAVASCRIPT ARCHITECTURE - HW LES PRIVATE TKA WEBSITE
+   VANILLA JAVASCRIPT ARCHITECTURE - UPDATE TKA SD & DYNAMIC LOADING TEXT
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,19 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
         musicInitialized: false
     };
 
-    // CONFIG DATA UTAMA TEMA
+    // CONFIG DATA UTAMA TEMA (Disesuaikan Narasi untuk Anak SD)
     const themeConfig = {
         galaxy: {
             summary: '"Jelajahi luasnya galaksi dan temukan bahwa setiap rumus adalah bintang yang akan menerangi masa depanmu."',
-            narration: (name) => `Halo, ${name}. Selamat datang di Galaksi Pengetahuan. Kami akan menemanimu mempelajari TKA sedikit demi sedikit hingga setiap soal terasa lebih mudah. Mari mulai perjalanan luar angkasa menuju prestasi terbaik.`
+            narration: (name) => `Halo, Sahabat Hebat ${name}! Selamat datang di Galaksi Pengetahuan HW Les Private. Di sini, kita akan seru-seruan latihan soal TKA SD biar kamu semakin jago dan siap berprestasi. Yuk, kita mulai petualangan luar angkasanya!`
         },
         autumn: {
             summary: '"Seperti daun yang terus menari mengikuti angin, setiap langkah belajarmu akan membawamu semakin dekat menuju impian."',
-            narration: (name) => `Halo, ${name}. Selamat datang di Langit Musim Gugur. Belajar tidak harus terburu-buru. Bersama kami, kamu akan memahami materi TKA secara bertahap dengan suasana yang tenang dan menyenangkan.`
+            narration: (name) => `Halo, Sahabat Hebat ${name}! Selamat datang di Langit Musim Gugur Ceria. Belajar TKA SD bareng HW Les Private itu seru dan santai kok. Kita pahami materinya pelan-pelan sambil menikmati suasana yang asyik ini, ya!`
         },
         ocean: {
             summary: '"Selami kedalaman ilmu sebagaimana lautan menyimpan jutaan keajaiban yang menunggu untuk ditemukan."',
-            narration: (name) => `Halo, ${name}. Selamat datang di Samudra Pengetahuan. Bersiaplah menjelajahi setiap materi TKA dengan tenang hingga kemampuanmu berkembang seperti luasnya samudra.`
+            narration: (name) => `Halo, Sahabat Hebat ${name}! Selamat datang di Samudra Prestasi. Lautan itu luas, sama seperti ilmu pengetahuan TKA SD yang siap kamu selami. Bareng HW Les Private, mari kumpulkan mutiara ilmu sebanyak-banyaknya!`
         }
     };
 
@@ -40,6 +40,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalPopup = document.getElementById("modal-popup");
     const popupIcon = document.getElementById("popup-icon");
     const popupMessage = document.getElementById("popup-message");
+    const loadingDynamicText = document.getElementById("loading-dynamic-text");
+
+    /* ==========================================================================
+       EFFECT TEXT BERGANTI-GANTI PADA LOADING SCREEN
+       ========================================================================== */
+    const loadingPhrases = [
+        "Mencari tentor hw",
+        "hampir siap",
+        "Selamat datang di dunia ilmu"
+    ];
+    let phraseIndex = 0;
+
+    // Teks berganti setiap 800ms agar pas dengan total loading 3 detik
+    const loadingTextInterval = setInterval(() => {
+        if (phraseIndex < loadingPhrases.length) {
+            if(loadingDynamicText) {
+                loadingDynamicText.style.opacity = 0; // Efek fade out
+                setTimeout(() => {
+                    loadingDynamicText.innerText = loadingPhrases[phraseIndex];
+                    loadingDynamicText.style.opacity = 1; // Efek fade in
+                    phraseIndex++;
+                }, 150);
+            }
+        } else {
+            clearInterval(loadingTextInterval);
+        }
+    }, 800);
 
     /* ==========================================================================
        ROUTER NAVIGASI HALAMAN
@@ -55,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Aksi Tombol Kembali Universal
     document.querySelectorAll(".btn-back").forEach(btn => {
         btn.addEventListener("click", () => {
             const target = btn.getAttribute("data-target");
@@ -64,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ==========================================================================
-       SISTEM ELEGAN POPUP MODAL DIALOG
+       POPUP MODAL DIALOG
        ========================================================================== */
     function showPopup(message, isWarning = false) {
         popupIcon.innerText = isWarning ? "⚠️" : "🚀";
@@ -72,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modalPopup.classList.add("active");
     }
 
-    // Menutup Modals
     document.getElementById("btn-popup-close").addEventListener("click", () => {
         modalPopup.classList.remove("active");
     });
@@ -86,13 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target === modalPopup) modalPopup.classList.remove("active");
     });
 
-    // Buka Pengaturan
     document.getElementById("btn-open-settings").addEventListener("click", () => {
         modalSettings.classList.add("active");
     });
 
     /* ==========================================================================
-       PARTIKEL ENGINE LATAR BELAKANG (60 FPS FLUID)
+       PARTIKEL ENGINE LATAR BELAKANG
        ========================================================================== */
     let animationIntervals = [];
 
@@ -107,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!state.animationsEnabled) return;
 
         if (state.currentTheme === "galaxy") {
-            // Animasi Bintang Berkedip (Galaksi)
             for (let i = 0; i < 60; i++) {
                 const star = document.createElement("div");
                 star.className = "star";
@@ -128,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 bgEffectsContainer.appendChild(star);
             }
-            // Pusat Inti Nebula Cahaya Lembut
             const nebula = document.createElement("div");
             nebula.style.position = "absolute";
             nebula.style.top = "50%";
@@ -140,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
             bgEffectsContainer.appendChild(nebula);
 
         } else if (state.currentTheme === "autumn") {
-            // Animasi Daun Maple Gugur
             for (let i = 0; i < 15; i++) {
                 createAutumnLeaf();
             }
@@ -150,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
             animationIntervals.push(spawnId);
 
         } else if (state.currentTheme === "ocean") {
-            // Animasi Gelembung Udara Lautan
             for (let i = 0; i < 20; i++) {
                 createOceanBubble(true);
             }
@@ -238,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ==========================================================================
-       RENDERING VECTOR AVATAR DINAIMS (SVG SELEKSI TEMA)
+       RENDERING VECTOR AVATAR DINAMIS
        ========================================================================== */
     function renderDynamicAvatar() {
         const target = document.getElementById("dynamic-avatar");
@@ -315,7 +335,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderDynamicAvatar();
     }
 
-    // Klik Pemilihan Kartu Tema
     document.querySelectorAll(".btn-theme-select").forEach(btn => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".btn-theme-select").forEach(b => b.classList.remove("active"));
@@ -326,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ==========================================================================
-       SISTEM CONTROLLER AUDIO
+       AUDIO CONTROLLER
        ========================================================================= */
     function initMusic() {
         if (state.musicInitialized) return;
@@ -336,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
             bgMusic.play().then(() => {
                 state.musicInitialized = true;
             }).catch(() => {
-                console.log("Autoplay ditangguhkan browser. Menunggu interaksi pengguna berikutnya.");
+                console.log("Autoplay ditangguhkan browser.");
             });
         }
     }
@@ -379,8 +398,9 @@ document.addEventListener("DOMContentLoaded", () => {
        WORKFLOW SISTEM JALAN UTAMA
        ========================================================================== */
     
-    // Auto Transition dari Loading Screen ke Welcome Screen (3 Detik)
+    // Transisi otomatis dari Loading Screen ke Welcome Screen (3 Detik)
     setTimeout(() => {
+        clearInterval(loadingTextInterval); // Stop interval text loading
         const loadScreen = document.getElementById("loading-screen");
         loadScreen.style.opacity = "0";
         loadScreen.style.transform = "scale(1.03)";
@@ -391,17 +411,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }, 3000);
 
-    // Verifikasi Input Nama - Klik Mulai Belajar
+    // Verifikasi Input Nama
     document.getElementById("btn-start").addEventListener("click", () => {
         const val = inputName.value.trim();
         if (val === "") {
-            showPopup("⚠️ Silakan isi nama terlebih dahulu sebelum memulai belajar.", true);
+            showPopup("⚠️ Silakan isi namamu terlebih dahulu sebelum memulai belajar.", true);
             return;
         }
         
         state.studentName = val;
-        
-        // Menyalakan Audio dengan Aman Sesuai Aturan Kebijakan Browser
         initMusic();
         if (state.audioEnabled && bgMusic.paused) {
             bgMusic.play().catch(()=>{});
@@ -411,28 +429,24 @@ document.addEventListener("DOMContentLoaded", () => {
         navigateTo("theme-screen");
     });
 
-    // Melanjutkan dari Menu Pilihan Tema ke Menu Utama Belajar
     document.getElementById("btn-to-menu").addEventListener("click", () => {
         navigateTo("menu-screen");
     });
 
-    // Pengalihan Menus Belajar
     document.getElementById("card-matematika").addEventListener("click", () => {
         navigateTo("math-submenu-screen");
     });
 
     document.getElementById("card-bahasa").addEventListener("click", () => {
-        showPopup("Fitur ini sedang dalam tahap pengembangan. Nantikan update berikutnya dari HW Les Private.", false);
+        showPopup("Modul Bahasa Indonesia SD sedang disiapkan. Nantikan update seru berikutnya dari HW Les Private!", false);
     });
 
-    // Alert Coming Soon untuk Sub-Menu Matematika
     document.querySelectorAll(".sub-item.coming-soon-subject").forEach(card => {
         card.addEventListener("click", () => {
-            showPopup("Fitur ini sedang dalam tahap pengembangan. Nantikan update berikutnya dari HW Les Private.", false);
+            showPopup("Latihan materi Matematika SD ini sedang dalam tahap pengembangan. Tunggu ya!", false);
         });
     });
 
-    // Regenerasi partikel efek secara fluid jika layar browser diubah ukurannya (Resize)
     window.addEventListener("resize", () => {
         if (document.getElementById("theme-screen").classList.contains("active") || 
             document.getElementById("welcome-screen").classList.contains("active")) {
